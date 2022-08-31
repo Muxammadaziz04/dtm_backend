@@ -60,6 +60,10 @@ create table results(
     result_id uuid default uuid_generate_v4(),
     first_subject int not null,
     second_subject int not null,
+    first_subject_id uuid references subjects(subject_id) not null,
+    second_subject_id uuid references subjects(subject_id) not null,
+    first_tests_count int not null,
+    second_tests_count int not null,
     score_ball decimal(4,1) not null,
     date timestamp default current_timestamp,
     time int not null,
@@ -79,7 +83,7 @@ insert into regions(region_id, region_name) values
 ('a333094a-066c-41ca-a062-045f15adda82','qoraqalpog''iston respublikasi'), 
 ('f9ad394d-276b-4559-b0fd-03eb6ac1bfd3','samarqand viloyati'), 
 ('5814832e-f380-4a68-88be-34d7af035f57','sirdaryo viloyati'), 
-('c45616c6-faa5-4665-938c-31d63fb24024','surxondaryo viloyati'), 
+('a03e35be-d87a-4041-b3ea-cb215a596837','surxondaryo viloyati'), 
 ('c45616c6-faa5-4665-938c-31d63fb24024','toshkent viloyati'),
 ('1afee431-8e9c-4c3c-86ac-b597f12917d5','toshkent shaxri');
 
@@ -522,9 +526,9 @@ insert into questions(question, question_variants, subject_id) values
     "correct": 2
 }', '0efb69e2-d40d-4baa-af59-5883b6d7766c');
 
-insert into results(first_subject, second_subject, date, time, user_id, faculties_id) values 
-('21', '24', '2022-03-04 17:30:43', '147', 'e42eed48-fcd7-4423-ada4-9ce051c0e663', '{"57fa6bd8-10ff-48ca-8ae2-8c0105318d5a"}'),
-('26', '21', '2022-03-04 17:30:43', '136', 'c4a242e8-972c-4028-8281-56b4a12a3df1', '{"20094e6f-58ca-4fcb-9c27-5ef46f8c95a8"}'),
-('25', '19', '2022-03-04 17:30:43', '100', '3c4525c4-556f-4aa3-b361-cf8034d37e5f', '{"e3200cb6-2203-474e-a671-7414eae5946e"}'),
-('22', '18', '2022-03-04 17:30:43', '112', '7073c34f-7b03-4078-b804-d155da61a24c', '{"b1c67f0b-6e6f-4b9f-8887-0d84ff7171e5"}'),
-('28', '25', '2022-03-04 17:30:43', '159', 'a22d0f71-acc4-42ea-87ad-06faeb5d4bf7', '{"e89c8907-0f57-4215-bc0b-5fe79d388c4b"}');
+insert into results(first_subject, second_subject, date, time, user_id, faculty_id, first_subject_id, second_subject_id, first_tests_count, second_tests_count, score_ball) values 
+('10', '10', '2022-08-28 17:30:43', '147', 'e42eed48-fcd7-4423-ada4-9ce051c0e663', '57fa6bd8-10ff-48ca-8ae2-8c0105318d5a', '80cee137-7945-45c7-8021-7f840e636006', '9bdd04a7-29d0-4a71-8326-efc8d02051dc', '10', '10', '189'),
+('10', '10', '2022-08-28 17:30:43', '136', 'c4a242e8-972c-4028-8281-56b4a12a3df1', '20094e6f-58ca-4fcb-9c27-5ef46f8c95a8', '80cee137-7945-45c7-8021-7f840e636006', '9bdd04a7-29d0-4a71-8326-efc8d02051dc', '10', '10', '189'),
+('10', '10', '2022-08-28 17:30:43', '100', '3c4525c4-556f-4aa3-b361-cf8034d37e5f', 'e3200cb6-2203-474e-a671-7414eae5946e', '80cee137-7945-45c7-8021-7f840e636006', '9bdd04a7-29d0-4a71-8326-efc8d02051dc', '10', '10', '189'),
+('10', '10', '2022-08-28 17:30:43', '112', '7073c34f-7b03-4078-b804-d155da61a24c', 'b1c67f0b-6e6f-4b9f-8887-0d84ff7171e5', '80cee137-7945-45c7-8021-7f840e636006', '9bdd04a7-29d0-4a71-8326-efc8d02051dc', '10', '10', '189'),
+('10', '10', '2022-08-28 17:30:43', '159', 'a22d0f71-acc4-42ea-87ad-06faeb5d4bf7', 'e89c8907-0f57-4215-bc0b-5fe79d388c4b', '80cee137-7945-45c7-8021-7f840e636006', '9bdd04a7-29d0-4a71-8326-efc8d02051dc', '10', '10', '189');
