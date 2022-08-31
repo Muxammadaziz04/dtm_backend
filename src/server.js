@@ -7,6 +7,7 @@ const universitiesRouter = require('./routers/universities.router.js')
 const facultiesRouter = require('./routers/faculties.router.js')
 const testsRouter = require('./routers/tests.router.js')
 const resultsRouter = require('./routers/results.router.js')
+const regionsRouter = require('./routers/regions.router.js')
 
 const { PORT } = require('./utils/config')
 
@@ -21,6 +22,7 @@ app.use(universitiesRouter)
 app.use(facultiesRouter)
 app.use(testsRouter)
 app.use(resultsRouter)
+app.use(regionsRouter)
 
 app.use((error, req, res, next) => {
     return res.send({ error: error.error?.message || error.message || 'Somethink went wrong' })
