@@ -12,7 +12,7 @@ api - https://dtm-test-sayt.herokuapp.com
 
 #### Login
 
-```http
+```https
   POST /login
 ```
 
@@ -23,7 +23,7 @@ api - https://dtm-test-sayt.herokuapp.com
 
 #### Register
 
-```http
+```https
   POST /register
 ```
 
@@ -39,7 +39,7 @@ api - https://dtm-test-sayt.herokuapp.com
 
 #### Get First Subjects 
 
-```http
+```https
   GET /firstsubject
 ```
 | Headers | Description   |
@@ -48,7 +48,7 @@ api - https://dtm-test-sayt.herokuapp.com
 
 #### Get Second Subjects
 
-```http
+```https
   GET /secondsubject/{first_subject_id}
 ```
 
@@ -58,7 +58,7 @@ api - https://dtm-test-sayt.herokuapp.com
 
 
 
-```http
+```https
   POST /subject
 ```
 
@@ -66,11 +66,11 @@ api - https://dtm-test-sayt.herokuapp.com
 | :----------------- | :---------------------- | :------------ |
 | `subject_name`     | `string`                | **Required**  |
 
-```http
+```https
   PUT /subject/{subject_id}
 ```
 
-```http
+```https
   DELETE /subject/{subject_id}
 ```
 
@@ -81,7 +81,7 @@ api - https://dtm-test-sayt.herokuapp.com
 
 # Faculties
 
-```http
+```https
   GET /faculties/{faculty_id}
 ```
 
@@ -89,7 +89,7 @@ api - https://dtm-test-sayt.herokuapp.com
 | :----------------- | :---------------------- | :------------ |
 | `faculty_id`       | `uuid`                  | **Required**  |
 
-```http
+```https
   POST /faculty
 ```
 
@@ -104,7 +104,7 @@ api - https://dtm-test-sayt.herokuapp.com
 | `passing_score_contract` | `number`  | **Required** contract uchun kirish bali |
 | `university_id`          | `uuid`    | **Required** universitet id si          |
 
-```http
+```https
   PUT /faculty/{faculty_id}
 ```
 
@@ -120,7 +120,7 @@ api - https://dtm-test-sayt.herokuapp.com
 | `passing_score_contract` | `number`  | contract uchun kirish bali              |
 | `university_id`          | `uuid`    | universitet id si                       |
 
-```http
+```https
   DELETE /faculty/{faculty_id}
 ```
 
@@ -130,7 +130,7 @@ api - https://dtm-test-sayt.herokuapp.com
 
 # Universities
 
-```http
+```https
   GET /universities
 ```
 
@@ -139,7 +139,7 @@ api - https://dtm-test-sayt.herokuapp.com
 | `first_subject`  | `uuid`    | **Required** birinchi fan id si         |
 | `second_subject` | `uuid`    | **Required** ikkinchi fan id si         |
 
-```http
+```https
   POST /university
 ```
 
@@ -148,10 +148,10 @@ api - https://dtm-test-sayt.herokuapp.com
 | `university_name` | `string`  | **Required** Universitet nomi           |
 | `region_id`       | `uuid`    | **Required** shaxar yoki viloyat id si  |
 
-```http
+```https
   PUT /university/{university_id}
 ```
-```http
+```https
   DELETE /university/{university_id}
 ```
 | Parameter         | Type      | Description                             |
@@ -160,7 +160,7 @@ api - https://dtm-test-sayt.herokuapp.com
  
  # Tests
 
-```http
+```https
   GET /tests
 ```
 
@@ -169,7 +169,7 @@ api - https://dtm-test-sayt.herokuapp.com
 | `first_subject`  | `uuid`    | **Required** birinchi fan id si         |
 | `second_subject` | `uuid`    | **Required** ikkinchi fan id si         |
 
-```http
+```https
   POST /test
 ```
 
@@ -179,10 +179,10 @@ api - https://dtm-test-sayt.herokuapp.com
 | `question_variants` | `object`  | **Required** Savol ni variantlari { 1: Birinchi variant, 2: ikkinchi variant, 3: uchinchi vaiant, 4: tortinchi variant, correct: Togri variant raqami} |
 | `subject_id`        | `uuid`    | **Required** Savol ga tegishli fan id si |
 
-```http
+```https
   PUT /test/{test_id}
 ```
-```http
+```https
   DELETE /test/{test_id}
 ```
 | Parameter         | Type      | Description                             |
@@ -193,15 +193,15 @@ api - https://dtm-test-sayt.herokuapp.com
  # Results
 
 #### User topshirgan testlar va toplagan ballar royxati
-```http
+```https
   GET /results
 ```
 #### Eng yuqori toplangan ballar
-```http
+```https
   GET /highest/results
 ```
 #### Id boyicha result olib beradi
-```http
+```https
   GET /result/{result_id}
 ```
 
@@ -209,7 +209,7 @@ api - https://dtm-test-sayt.herokuapp.com
 | :------------------ | :-------- | :--------------------------------------- |
 | `result_id`         | `uuid`    | **Required** rezultat id si              |
 
-```http
+```https
   POST /result
 ```
 | Parameter            | Type      | Description                                               |
@@ -226,6 +226,6 @@ api - https://dtm-test-sayt.herokuapp.com
 # Regions
 #### Region nomlari va id sini olib beradi
 
-```http
+```https
   GET /regions
 ```
