@@ -8,6 +8,8 @@
 
 api - https://dtm-test-sayt.herokuapp.com
 
+#### Login va registratsiyadan boshqa xamma joyda token required
+
 # Auth
 
 #### Login
