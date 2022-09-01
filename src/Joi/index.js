@@ -6,7 +6,7 @@ const resultSchema = Joi.object({
     first_tests_count: Joi.number().integer().required(), 
     second_tests_count: Joi.number().integer().required(),
     time: Joi.number().integer().required(), 
-    faculties: Joi.array().items(Joi.string().guid({ version: 'uuidv4' })).required(),
+    faculties: Joi.array().items(Joi.object().required()).required(),
     user_id: Joi.string().guid({ version: 'uuidv4' }).required(),
     first_subject_id: Joi.string().guid({ version: 'uuidv4' }).required(), 
     second_subject_id: Joi.string().guid({ version: 'uuidv4' }).required()
