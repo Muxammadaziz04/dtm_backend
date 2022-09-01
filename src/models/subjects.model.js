@@ -22,7 +22,44 @@ const getSecondSubjectModel = async ({ first_subject_id }) => {
     }
 }
 
+const postSubjectModel = async ({ subject_name }) => {
+    try {
+        const postSubjectQuery = `
+        insert into subjects(subject_name)
+        values ($1) returning *
+        `
+        return await fetchData(postSubjectQuery, subject_name)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const putSubjectModel = async ({ subject_name }, { subject_id }) => {
+    try {
+        const getFacultiesQuery = `
+        update subjects set subject_name = $2 where subject_id = $1
+        `
+        return await fetchData(getFacultiesQuery, subject_id, subject_name)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const deleteSubjectModel = async ({ subject_id }) => {
+    try {
+        const deletSubjectQuery = `
+        delete from subjects where subject_id = $1
+        `
+        return await fetchData(deletSubjectQuery, subject_id)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 module.exports = {
     getFirstSubjectModel,
-    getSecondSubjectModel
+    getSecondSubjectModel,
+    postSubjectModel,
+    putSubjectModel,
+    deleteSubjectModel
 }

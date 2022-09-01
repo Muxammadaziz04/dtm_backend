@@ -21,6 +21,54 @@ const getTestsModel = async ({ first_subject, second_subject }) => {
     }
 }
 
+const postTestModel = async ({ question, question_variants, subject_id }) => {
+    try {
+        const postTestQuery = `
+        insert into questions(question, question_variants, subject_id)
+        values ($1, $2, $3) returning *
+        `
+        return await fetchData(postTestQuery, question, question_variants, subject_id)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const putTestModel = async (body, { question_id }) => {
+    try {
+        const getTestQuery = `select * from questions where question_id = $1`
+        const [oldTest] = await fetchData(getTestQuery, question_id)
+
+        if (!oldTest) return []
+
+        const { question, question_variants, subject_id } = { ...oldTest, ...body }
+
+        const TestQuery = `
+        update questions set 
+        question = $2, 
+        question_variants = $3, 
+        subject_id = $4
+        where university_id = $1
+        `
+        return await fetchData(TestQuery, question_id, question, question_variants, subject_id)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+const deleteTestModel = async ({ question_id }) => {
+    try {
+        const deletTestQuery = `
+        delete from questions where question_id = $1
+        `
+        return await fetchData(deletTestQuery, question_id)
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 module.exports = {
-    getTestsModel
+    getTestsModel,
+    postTestModel,
+    putTestModel,
+    deleteTestModel
 }
