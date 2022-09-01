@@ -37,7 +37,7 @@ const postSubjectModel = async ({ subject_name }) => {
 const putSubjectModel = async ({ subject_name }, { subject_id }) => {
     try {
         const getFacultiesQuery = `
-        update subjects set subject_name = $2 where subject_id = $1
+        update subjects set subject_name = $2 where subject_id = $1 returning *
         `
         return await fetchData(getFacultiesQuery, subject_id, subject_name)
     } catch (error) {
@@ -48,7 +48,7 @@ const putSubjectModel = async ({ subject_name }, { subject_id }) => {
 const deleteSubjectModel = async ({ subject_id }) => {
     try {
         const deletSubjectQuery = `
-        delete from subjects where subject_id = $1
+        delete from subjects where subject_id = $1 returning *
         `
         return await fetchData(deletSubjectQuery, subject_id)
     } catch (error) {

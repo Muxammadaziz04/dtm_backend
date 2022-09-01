@@ -47,7 +47,7 @@ const putTestModel = async (body, { question_id }) => {
         question = $2, 
         question_variants = $3, 
         subject_id = $4
-        where university_id = $1
+        where question_id = $1 returning *
         `
         return await fetchData(TestQuery, question_id, question, question_variants, subject_id)
     } catch (error) {
@@ -58,7 +58,7 @@ const putTestModel = async (body, { question_id }) => {
 const deleteTestModel = async ({ question_id }) => {
     try {
         const deletTestQuery = `
-        delete from questions where question_id = $1
+        delete from questions where question_id = $1 returning *
         `
         return await fetchData(deletTestQuery, question_id)
     } catch (error) {

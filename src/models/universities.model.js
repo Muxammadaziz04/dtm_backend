@@ -39,7 +39,7 @@ const putUniversityModel = async (body, { university_id }) => {
         update universities set 
         university_name = $2,
         region_id = $3
-        where university_id = $1
+        where university_id = $1 returning *
         `
         return await fetchData(putFacultyQuery, university_id, university_name, region_id)
     } catch (error) {
@@ -50,7 +50,7 @@ const putUniversityModel = async (body, { university_id }) => {
 const deleteUniversityModel = async ({ university_id }) => {
     try {
         const deletUniversityQuery = `
-        delete from universities where university_id = $1
+        delete from universities where university_id = $1 returning *
         `
         return await fetchData(deletUniversityQuery, university_id)
     } catch (error) {
